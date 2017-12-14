@@ -1,0 +1,12 @@
+<ion-popover-view class="popover-menu">
+	<ion-list>
+		<li ng-click="showPopupText()" class="popover-item item item-icon-left">
+			<i class="icon icon-font"></i>Taille du texte
+		</li>
+		<li class="popover-item item item-icon-left" ng-click="bookmark()">
+			<i class="icon light icon-bookmark" ng-class="{'bookmarked':bookmarked}"></i>
+			<span ng-if="bookmarked">Retirer des Favoris</span>
+			<span ng-if="!bookmarked">Ajouter aux Farovis</span>
+		</li>
+	</ion-list>
+</ion-popover-view>

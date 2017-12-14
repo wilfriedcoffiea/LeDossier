@@ -1,0 +1,27 @@
+.menu .bar.bar-header .title{left:auto!important}
+.menu-list .item{color:#424141}
+.menu-list .item .icon{font-size:18px}
+.menu-list .item.selected{
+	background:#ec3236;
+	color:#fff;
+    font-size: 15px
+}
+.menu-list .icon{
+	width:32px;
+	overflow:hidden
+}
+.menu-list .icon img{width:55%}
+.platform-ios .menu-child{padding-top:16px}
+.menu-child{
+	position:fixed;
+    top:43px;
+    left:125px;
+    bottom:0;
+    width:150px;
+    z-index:2;
+    background:#ec3236
+}
+.menu-child .item{
+	background:transparent;
+    color:#fff
+}
