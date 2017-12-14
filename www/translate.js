@@ -8,6 +8,7 @@ angular.module('starter.translate', ['pascalprecht.translate'])
 	//Translate for EN
 	$translateProvider.translations('en', {
 		disconnected: "Réseau déconnecté",
+		disconnected: "Vérifiez votre connexion",
 		photos: "Photos",
 		videos: "Vidéos",
 		latest: "NEWS",

@@ -126,7 +126,7 @@ angular.module('starter.controllers', [])
 	if(angular.isUndefined($localStorage.bookmark)) $localStorage.bookmark = {};
 	$scope.$sce = $sce;
 	$scope.posts = $stateParams.id;
-	$scope.showLoading("Loading...");
+	$scope.showLoading("Chargement...");
 	if(angular.isDefined($localStorage.bookmark[$scope.posts])) $scope.bookmarked = true;
 	$http.get(wordpress_url+'/wp-json/wp/v2/posts/'+$scope.posts)
 	.then(function(response){
@@ -212,7 +212,7 @@ angular.module('starter.controllers', [])
 	$scope.incategory = [];
 	$scope.page = 1;
 	if(angular.isDefined($localStorage.bookmark[$scope.posts])) $scope.bookmarked = true;
-	$scope.showLoading("Loading...");
+	$scope.showLoading("Chargement...");
 	$http.get(wordpress_url+'/wp-json/wp/v2/posts/'+$scope.posts)
 	.then(function(response){
 		$scope.loadDetail = true;
@@ -309,7 +309,7 @@ angular.module('starter.controllers', [])
 	$scope.data = {};
 	$scope.AddAComment = function(){
 		if(angular.isDefined($localStorage.login)){
-			$scope.showLoading("Loading...");
+			$scope.showLoading("Chargement...");
 			$scope.checkToken().then(function(response){
 				$http({
 					method: 'POST',
@@ -366,7 +366,7 @@ angular.module('starter.controllers', [])
 			$scope.page = $scope.page +1;
 		});
 	};
-	$scope.showLoading("Loading...");
+	$scope.showLoading("Chargement...");
 	$http.get(wordpress_url+'/wp-json/wp/v2/categories/'+$stateParams.id)
 	.then(function(response){
 		$scope.nameCategory = response.data;
@@ -437,7 +437,7 @@ angular.module('starter.controllers', [])
 		};
 		Camera.getPicture(options).then(function(imageData) {
 			$scope.avatar = "data:image/jpeg;base64,"+imageData;
-			$scope.showLoading("Loading...");
+			$scope.showLoading("Chargement...");
 			$scope.checkToken().then(function(response){
 				$http.post(wordpress_url+'/wp-json/mobiconnector/user/update_profile',{
 					user_profile_picture: $scope.avatar
@@ -500,7 +500,7 @@ angular.module('starter.controllers', [])
 .controller('BookmarkCtrl', function($scope, $http, $localStorage, $sce){
 	$scope.$sce = $sce;
 	if($localStorage.bookmark && angular.isObject($localStorage.bookmark)){
-		$scope.showLoading("Loading...");
+		$scope.showLoading("Chargement...");
 		$scope.include = [];
 		angular.forEach($localStorage.bookmark, function(value, key){
 			$scope.include.push(key);
@@ -528,7 +528,7 @@ angular.module('starter.controllers', [])
 	$scope.dataLogin = $stateParams;
 	$scope.data = {};
 	$scope.login = function(){
-		$scope.showLoading("Loading...");
+		$scope.showLoading("Chargement...");
 		$http.post(wordpress_url+'/wp-json/jwt-auth/v1/token', {
 			username: $scope.data.username,
 			password: $scope.data.password
@@ -565,7 +565,7 @@ angular.module('starter.controllers', [])
 				}).then(
 					function(user){
 						user.password = Math.random().toString(36).substr(2, 6);
-						$scope.showLoading("Loading...");
+						$scope.showLoading("Chargement...");
 						$http.post(wordpress_url+'/wp-json/mobiconnector/user/register',{
 							username: user.email,
 							email: user.email,
@@ -605,7 +605,7 @@ angular.module('starter.controllers', [])
 				.then(function(user){
 					user = user.data;
 					user.password = Math.random().toString(36).substr(2, 6);
-					$scope.showLoading("Loading...");
+					$scope.showLoading("Chargement...");
 					$http.post(wordpress_url+'/wp-json/mobiconnector/user/register',{
 						username: user.emails[0].value,
 						email: user.emails[0].value,
@@ -642,7 +642,7 @@ angular.module('starter.controllers', [])
 .controller('ForgotCtrl', function($scope, $http, $state){
 	$scope.data = {};
 	$scope.reset = function(){
-		$scope.showLoading("Loading...");
+		$scope.showLoading("Chargement...");
 		$http.post(wordpress_url+'/wp-json/mobiconnector/user/forgot_password',{
 			username: $scope.data.email,
 		},{
@@ -687,7 +687,7 @@ angular.module('starter.controllers', [])
 			if($scope.data.password != $scope.data.repass){
 				window.plugins.toast.showShortBottom('Re-password do not match');
 			} else {
-				$scope.showLoading("Loading...");
+				$scope.showLoading("Chargement...");
 				$http.post(wordpress_url+'/wp-json/mobiconnector/user/register',{
 					username: $scope.data.email,
 					email: $scope.data.email,
@@ -719,7 +719,7 @@ angular.module('starter.controllers', [])
 .controller('SearchCtrl', function($scope, $http){
 	$scope.data = {};
 	$scope.search = function(){
-		$scope.showLoading("Loading...");
+		$scope.showLoading("Chargement...");
 		$http.get(wordpress_url+'/wp-json/wp/v2/posts?search='+$scope.data.keyword)
 		.then(function(response){
 			$scope.data.resuilt = response.data;

@@ -260,22 +260,22 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers', '
 			return String(new Date(time));
 		}
 		else if (time_ago<perMinute){
-			return Math.round(time_ago/1000) + ' seconds ago';
+			return 'Il y a ' + Math.round(time_ago/1000) + ' secondes';
 		}
 		else if(time_ago<perHour){
-			return Math.round(time_ago/perMinute) + ' minutes ago';
+			return 'Il y a ' + Math.round(time_ago/perMinute) + ' minutes';
 		}
 		else if(time_ago<perDay){
-			return Math.round(time_ago/perHour) + ' hours ago';
+			return 'Il y a ' + Math.round(time_ago/perHour) + ' heures';
 		}
 		else if(time_ago<perMonth){
-			return Math.round(time_ago/perDay) + ' days ago';
+			return 'Il y a ' + Math.round(time_ago/perDay) + ' jours';
 		}
 		else if(time_ago<perYear){
-			return Math.round(time_ago/perMonth) + ' months ago';
+			return 'Il y a ' + Math.round(time_ago/perMonth) + ' mois';
 		}
 		else{
-			return Math.round(time_ago/perYear) + ' years ago';
+			return 'Il y a ' + Math.round(time_ago/perYear) + ' ans';
 		}
 	}
 })
